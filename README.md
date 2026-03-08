@@ -2,6 +2,10 @@
 
 > Rename files in bulk — **fast, safe, and powerful.**
 
+[<image-card alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" ></image-card>](https://opensource.org/licenses/MIT)
+[<image-card alt="Python 3.8+" src="https://img.shields.io/badge/python-3.8+-blue.svg" ></image-card>](https://www.python.org/downloads/)
+[<image-card alt="Stars" src="https://img.shields.io/github/stars/xosjslnks/bulk-file-renamer?style=social" ></image-card>](https://github.com/xosjslnks/bulk-file-renamer)
+
 A lightweight yet powerful command-line tool to rename hundreds or thousands of files in seconds. Perfect for organizing **photos, downloads, scans, music libraries, project files**, and more.
 
 Built with **pure Python** and minimal dependencies.
