@@ -32,7 +32,7 @@ Built with **pure Python** and minimal dependencies.
 ## 1. Clone the repository
 
 ```bash
-git clone h[ttps://github.com/xobe/bulk-file-renamer.git](https://github.com/xosjslnks/bulk-file-renamer.git)
+git clone (https://github.com/xosjslnks/bulk-file-renamer.git)
 cd bulk-file-renamer
 ```
 
