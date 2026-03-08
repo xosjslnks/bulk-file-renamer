@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+"""
+Bulk File Renamer CLI
+Simple, safe, powerful batch file renaming tool
+"""
 
 import argparse
 import os
@@ -13,11 +18,14 @@ try:
 except ImportError:
     COLOR = False
 
-def cprint(text, color=Fore.WHITE):
+def cprint(text, color=Fore.WHITE, **kwargs):
+    """
+    Custom print with color support and **kwargs forwarding (end='', flush, etc.)
+    """
     if COLOR:
-        print(color + text + Style.RESET_ALL)
+        print(color + text + Style.RESET_ALL, **kwargs)
     else:
-        print(text)
+        print(text, **kwargs)
 
 def get_modified_date(file_path):
     """Get file's last modified date"""
@@ -126,7 +134,6 @@ def main():
         name = old_path.stem
         ext = old_path.suffix
 
-        # Apply operations in order
         new_name = name
 
         # 1. Date prefix
@@ -152,11 +159,11 @@ def main():
         # 5. Numbering
         if args.number:
             num_str = f"{idx:0{args.pad}d}"
-            new_name = new_name + num_str
+            new_name += num_str
 
         # 6. Suffix (before extension)
         if args.suffix:
-            new_name = new_name + args.suffix
+            new_name += args.suffix
 
         # 7. Change extension
         if args.change_ext:
@@ -165,7 +172,6 @@ def main():
                 ext = f".{new_ext}"
 
         new_path = old_path.with_name(new_name + ext)
-
         new_names.append(new_path)
 
     # Preview
@@ -175,7 +181,9 @@ def main():
         cprint("\nDry-run mode: No files were renamed.", Fore.YELLOW)
         return
 
+    # Konfirmasi dengan support end=""
     cprint(f"\nFound {len(files)} files. Proceed with rename? (y/N): ", Fore.CYAN, end="")
+
     confirm = input().strip().lower()
     if confirm not in ("y", "yes"):
         cprint("Aborted.", Fore.YELLOW)
